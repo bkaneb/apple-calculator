@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const Calculator = () => <CalculatorWrapper></CalculatorWrapper>;
 
 const CalculatorWrapper = styled.div`
-  background: white;
-  height: 50px;
-  width: 50px;
+  background: #242424;
+  height: 320px;
+  width: 230px;
+  border-radius: 7px;
 `;
