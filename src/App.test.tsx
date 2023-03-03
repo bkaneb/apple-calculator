@@ -9,5 +9,12 @@ describe("App", () => {
     render(<App />);
     const wrapper = screen.getByTestId("Wrapper");
     expect(wrapper).toHaveStyle("background: #333");
-  })
+  });
+
+  it("the children is centered", () => {
+    render(<App />);
+    const wrapper = screen.getByTestId("Wrapper");
+    expect(wrapper).toHaveStyle("justify-content: center");
+    expect(wrapper).toHaveStyle("align-items: center");
+  });
 });
