@@ -4,7 +4,7 @@ import { keyboardConfig } from "./keyboard.config";
 import { colors } from "../../../utils/colors";
 
 export const CalculatorKeyboard = () => (
-  <CalculatorKeyboardWrapper>
+  <CalculatorKeyboardWrapper data-testid="calculator-keyboard">
     {keyboardConfig.map((keyboardKey, index) => {
       const { value, row, column, background } = keyboardKey;
 
