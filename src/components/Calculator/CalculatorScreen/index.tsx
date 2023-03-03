@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export const CalculatorScreen = () => (
-  <CalculatorScreenWrapper>
+  <CalculatorScreenWrapper  data-testid="calculator-screen">
     <Number>0</Number>
   </CalculatorScreenWrapper>
 );
