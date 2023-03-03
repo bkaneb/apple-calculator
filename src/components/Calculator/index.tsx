@@ -17,6 +17,7 @@ const CalculatorWrapper = styled.div`
   background: ${colors.calculator.background};
   height: 320px;
   width: 230px;
-  border-radius: 7px;
+  border-radius: 8px;
   overflow: hidden;
+  border: 1px solid #65646c;
 `;

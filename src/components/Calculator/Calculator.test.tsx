@@ -12,10 +12,10 @@ describe("Calculator", () => {
       expect(wrapper).toHaveStyle("background: #2c2b2e");
     });
 
-    it("The value of border-radius is 7px", () => {
+    it("The value of border-radius is 8px", () => {
       render(<Calculator />);
       const wrapper = screen.getByTestId("calculator");
-      expect(wrapper).toHaveStyle("border-radius: 7px");
+      expect(wrapper).toHaveStyle("border-radius: 8px");
     });
   });
 });
