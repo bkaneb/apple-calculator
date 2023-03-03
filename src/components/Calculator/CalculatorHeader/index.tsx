@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { colors } from "../../../utils/colors";
+
+const headerColors = colors.calculator.header;
 
 export const CalculatorHeader = () => (
   <CalculatorHeaderWrapper>
-    <Button color={"#fe5f57"} />
-    <Button color={"#fdbc2c"} />
-    <Button color={"#29c73f"} />
+    <Button color={headerColors.buttons.close} />
+    <Button color={headerColors.buttons.reduce} />
+    <Button color={headerColors.buttons.fullScreen} />
   </CalculatorHeaderWrapper>
 );
 
