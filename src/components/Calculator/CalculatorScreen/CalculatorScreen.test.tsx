@@ -8,8 +8,8 @@ describe("Calculator", () => {
   describe("calculator-screen", () => {
     it("The value of height is 18%", () => {
       render(<CalculatorScreen />);
-      const wrapper = screen.getByTestId("calculator-screen");
-      expect(wrapper).toHaveStyle("height: 18%");
+      const calculatorScreen = screen.getByTestId("calculator-screen");
+      expect(calculatorScreen).toHaveStyle("height: 18%");
     });
   });
 });
