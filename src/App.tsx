@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Calculator } from "./components/Calculator";
 
 const App = () => (
-  <Wrapper data-testid="Wrapper">
+  <Wrapper data-testid="app">
     <Calculator />
   </Wrapper>
 );
