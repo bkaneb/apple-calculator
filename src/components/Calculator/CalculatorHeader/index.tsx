@@ -5,7 +5,7 @@ import { colors } from "../../../utils/colors";
 const headerColors = colors.calculator.header;
 
 export const CalculatorHeader = () => (
-  <CalculatorHeaderWrapper>
+  <CalculatorHeaderWrapper data-testid="calculator-header">
     <Button color={headerColors.buttons.close} />
     <Button color={headerColors.buttons.reduce} />
     <Button color={headerColors.buttons.fullScreen} />
