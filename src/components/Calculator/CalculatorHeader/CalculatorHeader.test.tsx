@@ -6,7 +6,7 @@ afterEach(cleanup);
 
 describe("Calculator", () => {
     describe("calculator-header", () => {
-        it("The value of height is 18%", () => {
+        it("The value of height is 7%", () => {
             render(<CalculatorHeader />);
             const wrapper = screen.getByTestId("calculator-header");
             expect(wrapper).toHaveStyle("height: 7%");

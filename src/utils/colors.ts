@@ -13,5 +13,14 @@ export const colors: IColors = {
         fullScreen: "#29c73f",
       },
     },
+    keyboard: {
+      border: "#262629",
+      text: "#fff",
+      key:{
+        darkGrey: '#3b3b3c',
+        lightGrey: '#5b5b5c',
+        operator: '#ff9e0b',
+      }
+    },
   },
 };

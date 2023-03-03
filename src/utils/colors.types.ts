@@ -11,5 +11,14 @@ export interface IColors {
         fullScreen: string;
       };
     };
+    keyboard: {
+      border: string;
+      text: string;
+      key: {
+        darkGrey: string;
+        lightGrey: string;
+        operator: string;
+      };
+    };
   };
 }
