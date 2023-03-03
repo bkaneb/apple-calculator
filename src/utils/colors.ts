@@ -5,7 +5,7 @@ export const colors: IColors = {
     background: "#333",
   },
   calculator: {
-    background: "#242424",
+    background: "#2c2b2e",
     header: {
       buttons: {
         close: "#fe5f57",
