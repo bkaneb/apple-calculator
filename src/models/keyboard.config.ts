@@ -159,7 +159,7 @@ export const keyboardConfig: IKeyboardConfig[] = [
     column: "4",
     row: "5",
     value: "=",
-    action: "RESULT",
+    action: "RESULT_OPERATION",
     background: colors.calculator.keyboard.key.operator,
     clickedBackground: colors.calculator.keyboard.keyClicked.operator,
   },
