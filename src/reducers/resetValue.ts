@@ -1,5 +1,6 @@
-import { ICalculatorState } from "../models/initialCalculatorState";
+import {ICalculatorState, initialCalculatorState} from "../models/initialCalculatorState";
 
-export const resetValue = (state: ICalculatorState) => {
-  return { ...state, currentValue: "0" };
-};
+export const resetValue = (state: ICalculatorState) => ({
+  ...state,
+  ...initialCalculatorState,
+});
