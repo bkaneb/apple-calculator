@@ -19,6 +19,11 @@ export interface IColors {
         lightGrey: string;
         operator: string;
       };
+      keyClicked: {
+        darkGrey: string;
+        lightGrey: string;
+        operator: string;
+      };
     };
   };
 }

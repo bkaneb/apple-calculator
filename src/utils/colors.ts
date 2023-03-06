@@ -20,6 +20,11 @@ export const colors: IColors = {
         darkGrey: '#3b3b3c',
         lightGrey: '#5b5b5c',
         operator: '#ff9e0b',
+      },
+      keyClicked: {
+        darkGrey: '#5b5b5c',
+        lightGrey: '#a1a1a3',
+        operator: '#cb7d08',
       }
     },
   },
