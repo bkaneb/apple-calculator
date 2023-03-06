@@ -5,6 +5,9 @@ export const chooseOperation = (state: ICalculatorState, payload: IPayload) => {
   const { currentValue } = state;
   const { value } = payload;
 
+  if (currentValue === "Error")
+    return { ...state, operation: value, previousValue: currentValue };
+
   return {
     ...state,
     previousValue: currentValue,

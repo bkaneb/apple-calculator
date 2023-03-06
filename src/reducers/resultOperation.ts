@@ -8,6 +8,8 @@ export const resultOperation = (state: ICalculatorState) => {
   let calculatedValue = 0;
 
   if (!previousValue || !operation) return { ...state };
+  if (previousValue === "Error") return { ...state, currentValue: "Error" };
+
   if (operation === "÷" && currentValue === "0")
     return { ...state, currentValue: "Error" };
 
