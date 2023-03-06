@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { keyboardConfig } from "./keyboard.config";
+import { keyboardConfig } from "../../../models/keyboard.config";
 import { colors } from "../../../utils/colors";
+import { IDispatch } from "../../../reducers";
 
-export const CalculatorKeyboard = () => {
+interface ICalculatorKeyboardProps {
+  dispatch:  React.Dispatch<IDispatch>;
+}
+
+export const CalculatorKeyboard = ({ dispatch }: ICalculatorKeyboardProps) => {
   const [isClickedKey, setIsClickedKey] = useState("");
 
   const onKeyIsClicked = (key: string) => setIsClickedKey(key);
@@ -13,7 +18,7 @@ export const CalculatorKeyboard = () => {
   return (
     <CalculatorKeyboardWrapper data-testid="calculator-keyboard">
       {keyboardConfig.map((keyboardKey, index) => {
-        const { value, row, column, background, clickedBackground } =
+        const { action, value, row, column, background, clickedBackground } =
           keyboardKey;
 
         return (
@@ -26,6 +31,7 @@ export const CalculatorKeyboard = () => {
                 ? clickedBackground
                 : background
             }
+            onClick={() => dispatch({ type: action, payload: { value } })}
             onMouseDown={() => onKeyIsClicked(`key ${index}: ${value}`)}
             onMouseUp={onKeyIsNotClicked}
           >

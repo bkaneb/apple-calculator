@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-export const CalculatorScreen = () => (
-  <CalculatorScreenWrapper  data-testid="calculator-screen">
-    <Number>0</Number>
+interface ICalculatorScreenProps {
+    value: string;
+}
+
+export const CalculatorScreen = ({ value }: ICalculatorScreenProps) => (
+  <CalculatorScreenWrapper data-testid="calculator-screen">
+    <Number>{value}</Number>
   </CalculatorScreenWrapper>
 );
 

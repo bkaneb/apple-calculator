@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useReducer } from "react";
 import styled from "styled-components";
 import { CalculatorHeader } from "./CalculatorHeader";
 import { colors } from "../../utils/colors";
 import { CalculatorScreen } from "./CalculatorScreen";
 import { CalculatorKeyboard } from "./CalculatorKeyboard";
+import { reducer } from "../../reducers";
+import { initialCalculatorState } from "../../models/initialCalculatorState";
 
-export const Calculator = () => (
-  <CalculatorWrapper data-testid="calculator">
-    <CalculatorHeader />
-    <CalculatorScreen />
-    <CalculatorKeyboard />
-  </CalculatorWrapper>
-);
+export const Calculator = () => {
+  const [{ currentValue }, dispatch] = useReducer(
+    reducer,
+    initialCalculatorState
+  );
+
+  return (
+    <CalculatorWrapper data-testid="calculator">
+      <CalculatorHeader />
+      <CalculatorScreen value={currentValue} />
+      <CalculatorKeyboard dispatch={dispatch} />
+    </CalculatorWrapper>
+  );
+};
 
 const CalculatorWrapper = styled.div`
   background: ${colors.calculator.background};

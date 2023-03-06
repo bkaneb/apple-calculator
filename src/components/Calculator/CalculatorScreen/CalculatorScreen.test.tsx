@@ -7,7 +7,7 @@ afterEach(cleanup);
 describe("Calculator", () => {
   describe("calculator-screen", () => {
     it("The value of height is 18%", () => {
-      render(<CalculatorScreen />);
+      render(<CalculatorScreen value={'0'} />);
       const calculatorScreen = screen.getByTestId("calculator-screen");
       expect(calculatorScreen).toHaveStyle("height: 18%");
     });
