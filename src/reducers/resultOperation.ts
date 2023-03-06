@@ -8,10 +8,22 @@ export const resultOperation = (state: ICalculatorState) => {
   let calculatedValue = 0;
 
   if (!previousValue || !operation) return { ...state };
-  if (previousValue === "Error") return { ...state, currentValue: "Error" };
+  if (previousValue === "Error")
+    return {
+      ...state,
+      operation: null,
+      currentValue: "Error",
+      crushable: true,
+    };
 
   if (operation === "÷" && currentValue === "0")
-    return { ...state, currentValue: "Error" };
+    return {
+      ...state,
+      operation: null,
+      previousValue: "0",
+      currentValue: "Error",
+      crushable: true,
+    };
 
   if (operation === "÷" && currentValue !== "0") {
     calculatedValue = previousValueNumber / currentValueNumber;
@@ -31,6 +43,8 @@ export const resultOperation = (state: ICalculatorState) => {
 
   return {
     ...state,
+    operation: null,
+    previousValue: "0",
     currentValue: `${calculatedValue}`.replace(/\./g, ","),
     crushable: true,
   };
