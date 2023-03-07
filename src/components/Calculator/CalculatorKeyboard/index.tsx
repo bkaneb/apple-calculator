@@ -25,20 +25,21 @@ export const CalculatorKeyboard = ({
         const { action, value, row, column, background, clickedBackground } =
           keyboardKey;
 
+        const key = `key ${index}: ${value}`;
         const operationIsActive = operation === value;
 
         return (
           <KeyboardKey
-            key={`key ${index}: ${value}`}
+            key={key}
             gridRow={row}
             gridColumn={column}
             background={
-              isClickedKey === `key ${index}: ${value}`
+              isClickedKey === key
                 ? clickedBackground
                 : background
             }
             onClick={() => dispatch({ type: action, payload: { value } })}
-            onMouseDown={() => onKeyIsClicked(`key ${index}: ${value}`)}
+            onMouseDown={() => onKeyIsClicked(key)}
             onMouseUp={onKeyIsNotClicked}
             operationIsActive={operationIsActive}
           >
