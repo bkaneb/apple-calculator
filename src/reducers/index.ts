@@ -3,6 +3,7 @@ import { addDigit } from "./addDigit";
 import { resetValue } from "./resetValue";
 import { chooseOperation } from "./chooseOperation";
 import { resultOperation } from "./resultOperation";
+import { changeSign } from "./changeSign";
 
 export type IAction =
   | "ADD_DIGIT"
@@ -32,6 +33,8 @@ export const reducer = (
       return chooseOperation(state, payload);
     case "CLEAR":
       return resetValue(state);
+    case "CHANGE_SIGN":
+      return changeSign(state);
     case "RESULT_OPERATION":
       return resultOperation(state);
     default:
