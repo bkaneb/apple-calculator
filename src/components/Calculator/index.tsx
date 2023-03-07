@@ -8,7 +8,7 @@ import { reducer } from "../../reducers";
 import { initialCalculatorState } from "../../models/initialCalculatorState";
 
 export const Calculator = () => {
-  const [{ currentValue }, dispatch] = useReducer(
+  const [{ currentValue, operation }, dispatch] = useReducer(
     reducer,
     initialCalculatorState
   );
@@ -17,7 +17,7 @@ export const Calculator = () => {
     <CalculatorWrapper data-testid="calculator">
       <CalculatorHeader />
       <CalculatorScreen value={currentValue} />
-      <CalculatorKeyboard dispatch={dispatch} />
+      <CalculatorKeyboard dispatch={dispatch} operation={operation || ""} />
     </CalculatorWrapper>
   );
 };

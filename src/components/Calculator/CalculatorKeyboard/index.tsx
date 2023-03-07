@@ -5,10 +5,14 @@ import { colors } from "../../../utils/colors";
 import { IDispatch } from "../../../reducers";
 
 interface ICalculatorKeyboardProps {
-  dispatch:  React.Dispatch<IDispatch>;
+  dispatch: React.Dispatch<IDispatch>;
+  operation: string;
 }
 
-export const CalculatorKeyboard = ({ dispatch }: ICalculatorKeyboardProps) => {
+export const CalculatorKeyboard = ({
+  dispatch,
+  operation,
+}: ICalculatorKeyboardProps) => {
   const [isClickedKey, setIsClickedKey] = useState("");
 
   const onKeyIsClicked = (key: string) => setIsClickedKey(key);
@@ -20,6 +24,8 @@ export const CalculatorKeyboard = ({ dispatch }: ICalculatorKeyboardProps) => {
       {keyboardConfig.map((keyboardKey, index) => {
         const { action, value, row, column, background, clickedBackground } =
           keyboardKey;
+
+        const operationIsActive = operation === value;
 
         return (
           <KeyboardKey
@@ -34,6 +40,7 @@ export const CalculatorKeyboard = ({ dispatch }: ICalculatorKeyboardProps) => {
             onClick={() => dispatch({ type: action, payload: { value } })}
             onMouseDown={() => onKeyIsClicked(`key ${index}: ${value}`)}
             onMouseUp={onKeyIsNotClicked}
+            operationIsActive={operationIsActive}
           >
             <TextValue>{value}</TextValue>
           </KeyboardKey>
@@ -47,9 +54,12 @@ type BorderDirection = "top" | "left" | "bottom" | "right";
 
 const getBorderKeyboardKey = (
   gridAttribute: string,
-  direction: BorderDirection
+  direction: BorderDirection,
+  operationIsActive: boolean
 ): string => {
-  const border = `1px solid ${colors.calculator.keyboard.border}`;
+  const border = operationIsActive
+    ? `1.5px solid ${colors.calculator.keyboard.border}`
+    : `.5px solid ${colors.calculator.keyboard.border}`;
 
   if (direction === "top" || direction === "left")
     return gridAttribute?.[0] === "1" ? "none" : border;
@@ -74,6 +84,7 @@ interface IKeyboardKeyProps {
   background: string;
   gridColumn: string;
   gridRow: string;
+  operationIsActive: boolean;
 }
 
 const KeyboardKey = styled.div<IKeyboardKeyProps>`
@@ -82,13 +93,17 @@ const KeyboardKey = styled.div<IKeyboardKeyProps>`
   align-items: center;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
   background: ${({ background }) => background};
   color: ${colors.calculator.keyboard.text};
-  border-top: ${({ gridRow }) => getBorderKeyboardKey(gridRow, "top")};
-  border-left: ${({ gridColumn }) => getBorderKeyboardKey(gridColumn, "left")};
-  border-bottom: ${({ gridRow }) => getBorderKeyboardKey(gridRow, "bottom")};
-  border-right: ${({ gridColumn }) =>
-    getBorderKeyboardKey(gridColumn, "right")};
+  border-top: ${({ gridRow, operationIsActive }) =>
+    getBorderKeyboardKey(gridRow, "top", operationIsActive)};
+  border-left: ${({ gridColumn, operationIsActive }) =>
+    getBorderKeyboardKey(gridColumn, "left", operationIsActive)};
+  border-bottom: ${({ gridRow, operationIsActive }) =>
+    getBorderKeyboardKey(gridRow, "bottom", operationIsActive)};
+  border-right: ${({ gridColumn, operationIsActive }) =>
+    getBorderKeyboardKey(gridColumn, "right", operationIsActive)};
   grid-column: ${({ gridColumn }) => gridColumn};
   grid-row: ${({ gridRow }) => gridRow};
   cursor: pointer;
