@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface ICalculatorScreenProps {
     value: string;
 }
-
+//TODO: when the value is too long, it should be truncated
 export const CalculatorScreen = ({ value }: ICalculatorScreenProps) => (
   <CalculatorScreenWrapper data-testid="calculator-screen">
     <Number>{value}</Number>
