@@ -1,4 +1,4 @@
-import { IColors } from "./colors.types";
+import { IColors } from "../types/colors.types";
 
 export const colors: IColors = {
   app: {

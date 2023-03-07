@@ -1,4 +1,5 @@
 import { ICalculatorState } from "../models/initialCalculatorState";
+import { constant } from "../utils/constant";
 
 export const resultOperation = (state: ICalculatorState) => {
   const { currentValue, previousValue, operation } = state;
@@ -8,11 +9,11 @@ export const resultOperation = (state: ICalculatorState) => {
   let calculatedValue = 0;
 
   if (!previousValue || !operation) return { ...state };
-  if (previousValue === "Error")
+  if (previousValue === constant.ERROR)
     return {
       ...state,
       operation: null,
-      currentValue: "Error",
+      currentValue: constant.ERROR,
       crushable: true,
     };
 
@@ -21,7 +22,7 @@ export const resultOperation = (state: ICalculatorState) => {
       ...state,
       operation: null,
       previousValue: "0",
-      currentValue: "Error",
+      currentValue: constant.ERROR,
       crushable: true,
     };
 

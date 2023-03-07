@@ -3,6 +3,7 @@ import {
   initialCalculatorState,
 } from "../../models/initialCalculatorState";
 import { resultOperation } from "../resultOperation";
+import { constant } from "../../utils/constant";
 
 const initialState: ICalculatorState = initialCalculatorState;
 
@@ -10,7 +11,7 @@ describe("As a user I want to perform an operation", () => {
   describe("Given the operation Error + 3", () => {
     const state = {
       ...initialState,
-      previousValue: "Error",
+      previousValue: constant.ERROR,
       currentValue: "3",
       operation: "+",
     };
@@ -20,8 +21,8 @@ describe("As a user I want to perform an operation", () => {
       test("Then I expect the state to be reset with the value 'Error'.", () => {
         expect(result).toEqual({
           ...initialState,
-          previousValue: "Error",
-          currentValue: "Error",
+          previousValue: constant.ERROR,
+          currentValue: constant.ERROR,
           crushable: true,
         });
       });
@@ -43,7 +44,7 @@ describe("As a user I want to perform an operation", () => {
           ...initialState,
           operation: null,
           previousValue: "0",
-          currentValue: "Error",
+          currentValue: constant.ERROR,
           crushable: true,
         });
       });

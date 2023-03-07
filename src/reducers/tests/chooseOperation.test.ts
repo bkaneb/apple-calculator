@@ -3,13 +3,13 @@ import {
   initialCalculatorState,
 } from "../../models/initialCalculatorState";
 import { chooseOperation } from "../chooseOperation";
-import { addDigit } from "../addDigit";
+import { constant } from "../../utils/constant";
 
 const initialState: ICalculatorState = initialCalculatorState;
 
 describe("As a user, I want to choose a type of operation", () => {
   describe("Given the value 'Error'", () => {
-    const state = { ...initialState, currentValue: "Error" };
+    const state = { ...initialState, currentValue: constant.ERROR };
 
     describe("When I choose the '+' operation type.", () => {
       const result = chooseOperation(state, { value: "+" });
@@ -17,8 +17,8 @@ describe("As a user, I want to choose a type of operation", () => {
       test("Then I expect the previous value is 'Error', current value is 'Error' and the operation type is '+'", () => {
         expect(result).toEqual({
           ...initialState,
-          previousValue: "Error",
-          currentValue: "Error",
+          previousValue: constant.ERROR,
+          currentValue: constant.ERROR,
           operation: "+",
         });
       });

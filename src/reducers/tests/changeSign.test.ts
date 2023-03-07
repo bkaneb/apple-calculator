@@ -3,12 +3,13 @@ import {
   initialCalculatorState,
 } from "../../models/initialCalculatorState";
 import { changeSign } from "../changeSign";
+import { constant } from "../../utils/constant";
 
 const initialState: ICalculatorState = initialCalculatorState;
 
 describe("As a user, I want to change the sign of the value", () => {
   describe("Given the value 'Error'", () => {
-    const state = { ...initialState, currentValue: "Error" };
+    const state = { ...initialState, currentValue: constant.ERROR };
 
     describe("When I click on the '+/-' button.", () => {
       const result = changeSign(state);
@@ -16,7 +17,7 @@ describe("As a user, I want to change the sign of the value", () => {
       test("Then I expect the value is 'Error'", () => {
         expect(result).toEqual({
           ...initialState,
-          currentValue: "Error",
+          currentValue: constant.ERROR,
         });
       });
     });

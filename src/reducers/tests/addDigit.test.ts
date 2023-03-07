@@ -3,6 +3,7 @@ import {
   ICalculatorState,
   initialCalculatorState,
 } from "../../models/initialCalculatorState";
+import { constant } from "../../utils/constant";
 
 let initialState: ICalculatorState = initialCalculatorState;
 
@@ -24,7 +25,7 @@ describe("As a user I want to add a number to the value", () => {
   });
 
   describe("Given the value 'Error'", () => {
-    const state = { ...initialState, currentValue: "Error" };
+    const state = { ...initialState, currentValue: constant.ERROR };
 
     describe("When I add 1", () => {
       const result = addDigit(state, { value: "1" });
