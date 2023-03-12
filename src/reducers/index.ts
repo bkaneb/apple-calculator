@@ -4,6 +4,7 @@ import { resetValue } from "./resetValue";
 import { chooseOperation } from "./chooseOperation";
 import { resultOperation } from "./resultOperation";
 import { changeSign } from "./changeSign";
+import { percentage } from "./percentage";
 
 export type IAction =
   | "ADD_DIGIT"
@@ -35,6 +36,8 @@ export const reducer = (
       return resetValue(state);
     case "CHANGE_SIGN":
       return changeSign(state);
+    case "PERCENTAGE":
+      return percentage(state);
     case "RESULT_OPERATION":
       return resultOperation(state);
     default:
