@@ -3,7 +3,6 @@ import {
   initialCalculatorState,
 } from "../../models/initialCalculatorState";
 import { resetValue } from "../resetValue";
-import { chooseOperation } from "../chooseOperation";
 
 const initialState: ICalculatorState = initialCalculatorState;
 
